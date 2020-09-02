@@ -1,7 +1,7 @@
 USE [master]
 GO
 
-/****** Object:  Database [testing]    Script Date: 9/2/2020 3:33:26 PM ******/
+/****** Object:  Database [testing]    Script Date: 9/2/2020 5:25:14 PM ******/
 CREATE DATABASE [testing]
  CONTAINMENT = NONE
  ON  PRIMARY 

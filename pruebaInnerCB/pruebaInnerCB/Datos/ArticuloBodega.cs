@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace pruebaInnerCB.Datos
 {
@@ -42,6 +43,8 @@ namespace pruebaInnerCB.Datos
 
         }
 
+       
+
         public void insertarDatos(int idBodega, string Descripcion, int Precio, int Stock)
         {
 
@@ -51,8 +54,27 @@ namespace pruebaInnerCB.Datos
             objcom.ExecuteNonQuery();
             objcon.CerrarConn();
 
+
         }
 
+
+        public void editarProducto(int idArticulo, int idBodega, string Descripcion, int Precio, int Stock)
+        {
+            objcom.Connection = objcon.AbrirConn();
+            objcom.CommandText = "update Articulos set idBodega=" + idBodega + ", Descripcion='" + Descripcion + "', Precio=" + Precio + ", Stock=" + Stock + " where idArticulo="+idArticulo+"";
+            objcom.ExecuteNonQuery();
+            MessageBox.Show("Fila actualizada");
+
+        }
+
+        public void eliminarProducto(int idArticulo)
+        {
+            objcom.Connection = objcon.AbrirConn();
+            objcom.CommandText = "delete Articulos where idArticulo=" + idArticulo + "";
+            objcom.ExecuteNonQuery();
+            MessageBox.Show("Producto Eliminado");
+
+        }
 
 
 
